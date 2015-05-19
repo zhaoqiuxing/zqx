@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="connection.url">
+			jdbc:mysql:///zqxjdbc
+		</property>
+		<property name="connection.username">
+			root
+		</property>
+		<property name="connection.password">
+			123
+		</property>
+		<property name="show_sql">
+			true
+		</property>
+		<property name="format_sql">
+			false
+		</property>
+		<property name="c3p0.connection.provider_class">
+			org.hibernate.connection.C3P0ConnectionProvider
+		</property>
+		<property name="c3p0.max_size">
+			2
+		</property>
+		<property name="c3p0.min_size">
+			2
+		</property>
+		<property name="c3p0.timeout">
+			5000
+		</property>
+		<property name="c3p0.max_statements">
+			100
+		</property>
+		<property name="c3p0.idle_test_period">
+			3000
+		</property>
+		<property name="c3p0.acquire_increment">
+			2
+		</property>
+		<property name="c3p0.validate">
+			false
+		</property>
+		<property name="c3p0.batch_size">
+			5
+		</property>
+		<property name="cache.use_second_level_cache">
+			true
+		</property>
+		<property name="cache.region.factory_class">
+			org.hibernate.cache.EhCacheRegionFactory
+		</property>
+		<property name="cache.use_query_cache">
+			true
+		</property>
+		<!-- <property name="cache.use_structured_entries"> true </property> -->
+		<!-- <property name="generate_statistics"> true </property> -->
+
+		<mapping resource="entity/zqx.hbm.xml" />
+		<mapping resource="entity/zqx1.hbm.xml" />
+		<!-- <class-cache class="entity.zqx" usage="read-only" ></class-cache> -->
+		
+	</session-factory>
+
+</hibernate-configuration>
+	

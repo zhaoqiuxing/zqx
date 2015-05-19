@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+	<class name="entity.zqx1" table="zqx1" dynamic-insert="true" dynamic-update="true" >
+	<cache usage="read-only"/>
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="string" not-null="true" access="field">
+			<column name="name" />
+		</property>
+		<many-to-one name="zqxid" class="entity.zqx" cascade="save-update" lazy="false" fetch="join" >
+			<column name="zqxid" not-null="true"></column>
+		</many-to-one>
+	</class>
+	<query name="zqxh1">
+    	<![CDATA[ from zqx as z where z.age=:zqx ]]>
+    	</query>
+</hibernate-mapping>

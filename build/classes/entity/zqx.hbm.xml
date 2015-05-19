@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+
+	<class name="entity.zqx" table="zqxtable" dynamic-insert="true"
+		dynamic-update="true" batch-size="3">
+
+		<cache usage="read-only" />
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="string" not-null="true" access="field">
+			<column name="name" />
+		</property>
+		<property name="age" type="int" lazy="true">
+			<column name="AGe" />
+		</property>
+		<!-- <property name="testformult" formula="(select sum(a.id)*2 from Zqxtable 
+			a )"> </property> -->
+		<!-- <set name="set" cascade="all-delete-orphan" inverse="true" batch-size="4" 
+			lazy="false" fetch="join" order-by="id" > -->
+		<set name="set" cascade="all-delete-orphan" inverse="true">
+			<key>
+				<column name="zqxid"></column>
+			</key>
+			<one-to-many class="entity.zqx1" />
+		</set>
+	</class>
+	<sql-query name="zqxsql">
+		<return class="entity.zqx"></return>
+    	<![CDATA[ select * from zqxtable  ]]>
+	</sql-query>
+	<query name="zqxh">
+    	<![CDATA[ from zqx as z where z.age=:zqx ]]>
+	</query>
+</hibernate-mapping>

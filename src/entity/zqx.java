@@ -7,7 +7,7 @@ import java.util.Set;
 public class zqx  implements Serializable {
 
 	private static final long serialVersionUID = 7881945592591710454L;
-	private int iaa11;
+	private int iaa11zqx;
 	private Long id;
 	private String testformult;
 	private Set set =new HashSet();
